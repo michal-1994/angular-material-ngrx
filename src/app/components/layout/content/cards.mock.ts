@@ -1,0 +1,20 @@
+export const CARDS = [
+  {
+    title: 'Karta 1'
+  },
+  {
+    title: 'Karta 2'
+  },
+  {
+    title: 'Karta 3'
+  },
+  {
+    title: 'Karta 4'
+  },
+  {
+    title: 'Karta 5'
+  },
+  {
+    title: 'Karta 6'
+  }
+];

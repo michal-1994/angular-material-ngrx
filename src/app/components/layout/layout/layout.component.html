@@ -1,16 +1,18 @@
-<header>
-  <app-header></app-header>
-</header>
-<div class="container">
-  <div class="row">
-    <aside class="col-12 col-sm-4">
-      <app-aside></app-aside>
-    </aside>
-    <main class="col-12 col-sm-8">
-      <app-content></app-content>
-    </main>
+<div class="layout-wrapper gap-4 d-flex flex-column">
+  <header>
+    <app-header></app-header>
+  </header>
+  <div class="container">
+    <div class="row gap-4">
+      <aside class="col-12 col-sm-12 col-md-4">
+        <app-aside></app-aside>
+      </aside>
+      <main class="col-12 col-sm-12 col-md-7">
+        <app-content></app-content>
+      </main>
+    </div>
   </div>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
 </div>
-<footer>
-  <app-footer></app-footer>
-</footer>

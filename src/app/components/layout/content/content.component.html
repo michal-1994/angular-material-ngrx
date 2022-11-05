@@ -1,1 +1,6 @@
-<p>content works!</p>
+<h2 class="mb-4">Tytuł</h2>
+<div class="row">
+  <app-card *ngFor="let card of cards"
+            [data]="card"
+            class="col-6 mb-4"></app-card>
+</div>
