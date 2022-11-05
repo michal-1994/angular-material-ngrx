@@ -2,7 +2,8 @@
   <mat-card-title>
     <h4>Kategorie</h4>
   </mat-card-title>
-  <mat-selection-list #categoryAside [multiple]="false">
+  <mat-selection-list #categoryAside
+                      [multiple]="false">
     <mat-list-option *ngFor="let category of categories"
                      [value]="category">
       {{ category }}
@@ -10,6 +11,6 @@
   </mat-selection-list>
   <hr>
   <p>
-    Wybrana kategoria: {{categoryAside.selectedOptions.selected[0]?.value}}
+    Wybrana kategoria: {{ categoryAside.selectedOptions.selected[0] ? categoryAside.selectedOptions.selected[0].value : '' }}
   </p>
 </mat-card>

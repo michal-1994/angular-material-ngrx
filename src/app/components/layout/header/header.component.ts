@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from 'src/app/services/theme.service';
+import { Option } from './option.model';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  options: Option[] = this.themeService.getThemeOptions();
 
-  ngOnInit(): void {
+  constructor(
+    private readonly themeService: ThemeService
+  ) { }
+
+  ngOnInit() {
+    this.themeService.setTheme("deeppurple-amber");
+  }
+
+  themeChangeHandler(themeToSet: any) {
+    this.themeService.setTheme(themeToSet);
   }
 
 }

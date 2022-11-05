@@ -8,7 +8,7 @@ import { CATEGORIES } from './aside.mock';
 })
 export class AsideComponent implements OnInit {
 
-  categories?: string[] = CATEGORIES;
+  categories: string[] = CATEGORIES;
 
   constructor() { }
 

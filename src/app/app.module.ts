@@ -14,7 +14,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 import { CardComponent } from './components/card/card.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { ThemeService } from './services/theme.service';
+import { StyleManagerService } from './services/style-manager.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,8 @@ import { CardComponent } from './components/card/card.component';
     FooterComponent,
     AsideComponent,
     ContentComponent,
-    CardComponent
+    CardComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +39,10 @@ import { CardComponent } from './components/card/card.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ],
-  providers: [],
+  providers: [StyleManagerService, ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
