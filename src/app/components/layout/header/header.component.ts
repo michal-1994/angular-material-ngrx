@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Option } from 'src/app/models/option.model';
 import { ThemeService } from 'src/app/services/theme.service';
-import { Option } from './option.model';
 
 @Component({
   selector: 'app-header',
@@ -9,17 +10,17 @@ import { Option } from './option.model';
 })
 export class HeaderComponent implements OnInit {
 
-  options: Option[] = this.themeService.getThemeOptions();
+  options$: Observable<Option[]> = this.themeService.getThemeOptions();
 
-  constructor(
+  constructor (
     private readonly themeService: ThemeService
   ) { }
 
-  ngOnInit() {
-    this.themeService.setTheme("deeppurple-amber");
+  ngOnInit () {
+    this.themeService.setTheme("indigo-pink");
   }
 
-  themeChangeHandler(themeToSet: any) {
+  themeChangeHandler (themeToSet: any) {
     this.themeService.setTheme(themeToSet);
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CARDS } from './cards.mock';
+import { Option } from 'src/app/models/option.model';
+import { CardsService } from 'src/app/services/cards.service';
 
 @Component({
   selector: 'app-content',
@@ -8,11 +9,16 @@ import { CARDS } from './cards.mock';
 })
 export class ContentComponent implements OnInit {
 
-  cards = CARDS;
+  cards?: Option[];
 
-  constructor() { }
+  constructor (
+    private cardsService: CardsService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
+    this.cardsService.getCards().subscribe(value => {
+      this.cards = value;
+    });
   }
 
 }

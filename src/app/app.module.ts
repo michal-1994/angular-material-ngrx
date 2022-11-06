@@ -19,6 +19,8 @@ import { CardComponent } from './components/card/card.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ThemeService } from './services/theme.service';
 import { StyleManagerService } from './services/style-manager.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CardsService } from './services/cards.service';
 
 @NgModule({
   declarations: [
@@ -40,9 +42,10 @@ import { StyleManagerService } from './services/style-manager.service';
     MatButtonModule,
     MatCardModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule
   ],
-  providers: [StyleManagerService, ThemeService],
+  providers: [StyleManagerService, ThemeService, CardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

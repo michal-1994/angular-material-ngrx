@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ThemeService } from 'src/app/services/theme.service';
-import { Option } from '../layout/header/option.model';
+import { Option } from 'src/app/models/option.model';
 
 @Component({
   selector: 'app-menu',
@@ -9,14 +8,12 @@ import { Option } from '../layout/header/option.model';
 })
 export class MenuComponent {
 
-  @Input() options?: Array<Option>;
+  @Input() options?: Option[] | null;
   @Output() themeChange: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(
-    private themeService: ThemeService
-  ) {}
+  constructor () {}
 
-  changeTheme(themeToSet: any) {
+  changeTheme (themeToSet: any) {
     this.themeChange.emit(themeToSet);
   }
 

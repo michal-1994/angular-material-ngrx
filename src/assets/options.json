@@ -1,6 +1,4 @@
-import { Option } from "./option.model"
-
-export const OPTIONS: Option[] = [
+[
   {
     "backgroundColor": "#fff",
     "buttonColor": "#ffc107",
