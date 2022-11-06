@@ -21,6 +21,12 @@ import { ThemeService } from './services/theme.service';
 import { StyleManagerService } from './services/style-manager.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CardsService } from './services/cards.service';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers } from './store/cards.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { CardsEffect } from './store/cards.effect';
 
 @NgModule({
   declarations: [
@@ -43,7 +49,10 @@ import { CardsService } from './services/cards.service';
     MatCardModule,
     MatListModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    EffectsModule.forRoot([CardsEffect]),
+    StoreModule.forRoot({ cards: reducers }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [StyleManagerService, ThemeService, CardsService],
   bootstrap: [AppComponent]

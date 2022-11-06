@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Option } from 'src/app/models/option.model';
-import { CardsService } from 'src/app/services/cards.service';
+import { AppState } from 'src/app/store/app.state';
+import { loadCards } from 'src/app/store/cards.actions';
+import { CardsState } from 'src/app/store/cards.reducer';
+import { selectCards } from 'src/app/store/cards.selector';
 
 @Component({
   selector: 'app-content',
@@ -9,16 +14,16 @@ import { CardsService } from 'src/app/services/cards.service';
 })
 export class ContentComponent implements OnInit {
 
-  cards?: Option[];
+  cards$: Observable<Option[]>;
 
   constructor (
-    private cardsService: CardsService
-  ) { }
+    private store: Store<AppState>
+  ) {
+    this.cards$ = this.store.pipe(select(selectCards));
+  }
 
   ngOnInit (): void {
-    this.cardsService.getCards().subscribe(value => {
-      this.cards = value;
-    });
+    this.store.dispatch(loadCards());
   }
 
 }
