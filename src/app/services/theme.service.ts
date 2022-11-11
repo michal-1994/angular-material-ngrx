@@ -20,7 +20,7 @@ export class ThemeService {
   setTheme (themeToSet: any) {
     this.styleManager.setStyle(
       "theme",
-      `./node_modules/@angular/material/prebuilt-themes/${themeToSet}.css`
+      `materialThemes/${themeToSet}.css`
     );
   }
 }
